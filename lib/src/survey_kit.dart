@@ -159,7 +159,6 @@ class _SurveyPageState extends State<SurveyPage>
       builder: (BuildContext context, SurveyState state) {
         if (state is PresentingSurveyState) {
           return Scaffold(
-            backgroundColor: Colors.transparent,
             appBar: state.currentStep.showAppBar
                 ? PreferredSize(
                     preferredSize: Size(
