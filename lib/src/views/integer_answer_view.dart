@@ -81,11 +81,13 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
             decoration: textFieldInputDecoration(
               hint: _integerAnswerFormat.hint,
             ),
-            maxLines: _integerAnswerFormat.maxLine,
+            maxLength: _integerAnswerFormat.maxLength,
+            maxLines: _integerAnswerFormat.maxLines,
             controller: _controller,
             onChanged: (String value) {
               _checkValidation(value);
             },
+
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
               FilteringTextInputFormatter.digitsOnly

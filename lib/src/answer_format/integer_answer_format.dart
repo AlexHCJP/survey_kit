@@ -7,12 +7,14 @@ part 'integer_answer_format.g.dart';
 class IntegerAnswerFormat implements AnswerFormat {
   final int? defaultValue;
   final String hint;
-  final int? maxLine;
+  final int? maxLines;
+  final int? maxLength;
 
   const IntegerAnswerFormat({
     this.defaultValue,
     this.hint = '',
-    this.maxLine,
+    this.maxLines,
+    this.maxLength,
   }) : super();
 
   factory IntegerAnswerFormat.fromJson(Map<String, dynamic> json) =>
