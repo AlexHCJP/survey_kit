@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:survey_kit/src/answer_format/integer_answer_format.dart';
 import 'package:survey_kit/src/result/question/integer_question_result.dart';
 import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
@@ -80,10 +81,15 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
             decoration: textFieldInputDecoration(
               hint: _integerAnswerFormat.hint,
             ),
+            maxLines: _integerAnswerFormat.maxLine,
             controller: _controller,
             onChanged: (String value) {
               _checkValidation(value);
             },
+            inputFormatters: <TextInputFormatter>[
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+              FilteringTextInputFormatter.digitsOnly
+            ],
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
           ),
